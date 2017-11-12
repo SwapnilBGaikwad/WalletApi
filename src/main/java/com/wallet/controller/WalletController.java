@@ -1,16 +1,33 @@
 package com.wallet.controller;
 
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMethod;
+import com.wallet.model.Wallet;
+import com.wallet.service.WalletService;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping( "/" )
 public class WalletController {
-    @RequestMapping( method = RequestMethod.GET )
-    public Integer getWalletBalance( @ModelAttribute int count ) {
-        return count + 100;
+    private WalletService service;
+
+    public WalletController( WalletService service ) {
+        this.service = service;
+    }
+
+    @RequestMapping( path = "/balance", method = RequestMethod.GET )
+    @ResponseBody
+    public Double getWalletBalance( @RequestParam String userId ) {
+        return service.getBalance( userId );
+    }
+
+    @RequestMapping( path = "/add-user", method = RequestMethod.POST )
+    @ResponseBody
+    public boolean getWalletBalance1( @RequestParam String userId,
+            @RequestParam Double balance ) {
+        System.out.println( "Wallet : " + userId );
+        System.out.println( "Wallet : " + balance );
+        final Wallet wallet = new Wallet( userId, balance );
+        System.out.println( "Wallet : " + wallet );
+        return service.addUser( wallet );
     }
 
 }
