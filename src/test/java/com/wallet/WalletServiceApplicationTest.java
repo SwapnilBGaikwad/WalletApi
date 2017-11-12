@@ -1,4 +1,4 @@
-package com.wallet.controller;
+package com.wallet;
 
 import org.junit.Assert;
 import org.junit.Test;
