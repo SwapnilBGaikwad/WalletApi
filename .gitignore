@@ -2,3 +2,5 @@
 .gradle/
 .gitignore
 WalletApi.iml
+out/
+build/
