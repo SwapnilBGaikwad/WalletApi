@@ -3,7 +3,7 @@ package com.wallet.model;
 import javax.persistence.*;
 
 @Entity
-@Table( name = "wallet" )
+@Table( name = "wallets" )
 public class Wallet {
     @Id
     private String userId;
