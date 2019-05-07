@@ -12,7 +12,7 @@ public class WalletServiceTest {
     @Test
     public void return_balance_of_user_from_given_userId() {
         WalletRepository repository = mock( WalletRepository.class );
-        final WalletService service = new WalletService( repository );
+        final WalletService service = new WalletService( repository);
 
         String userId = "dummy@mail.com";
         when( repository.findOne( userId ) ).thenReturn( new Wallet( userId, 10d ) );
